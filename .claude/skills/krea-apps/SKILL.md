@@ -24,6 +24,8 @@ Una app de KREA no es una página: el cliente la usa **a diario en el móvil (�
 - Si no, Kike crea el proyecto en https://supabase.com (nombre `krea-<proyecto>`, región UE) y pasa a Claude **Project URL** y **anon public key**. Esas dos se pueden poner en el código.
 - **Nunca** pedir, pegar ni subir la `service_role` ni la contraseña de la base de datos.
 - Claves de terceros (Claude API, etc.) solo como **secretos de Edge Functions**, nunca en el código del navegador.
+- **Patrón probado (SGM):** tabla `<app>_state (user_id, data jsonb, rev)` con RLS por `auth.uid()`; tabla `<app>_allowed_emails` y *trigger* `before insert on auth.users` que rechaza correos no autorizados y los confirma automáticamente; quitar permisos a `anon`. En el navegador, `fetch` directo a `/auth/v1` y `/rest/v1` (sin librerías), guardado con control de versión (`PATCH ...?rev=eq.N`) y fusión por `id` si dos dispositivos guardan a la vez.
+- Pedir a Kike en el panel de Supabase: **Authentication → URL Configuration → Site URL** = la dirección de la app (para los correos de «he olvidado la contraseña») y desactivar **Confirm email** si se usa la lista de correos autorizados.
 
 ## 3. Lo que lleva toda app de gestión
 
