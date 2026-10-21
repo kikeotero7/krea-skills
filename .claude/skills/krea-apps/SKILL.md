@@ -1,6 +1,6 @@
 ---
 name: krea-apps
-description: Estándar de KREA Digital Studio para crear apps de clientes (gestión, presupuestos, fichajes, reservas, paneles). Usar SIEMPRE que se cree o mejore una app: toda app se entrega instalable en móvil y ordenador, con los mismos datos sincronizados en la nube, acceso privado, PDF y envío por WhatsApp/correo, demo aparte y portafolio.
+description: Estándar y forma de trabajar de KREA Digital Studio para proyectos de clientes (apps de gestión, presupuestos, fichajes, reservas, paneles, y también webs y portafolios). Usar SIEMPRE que se cree o mejore una app, una web o un portafolio: toda app se entrega instalable en móvil y ordenador, con los mismos datos sincronizados en la nube, acceso privado, PDF y envío por WhatsApp/correo, demo aparte, y todo proyecto termina con portafolio web y PDF con el © de KREA Digital Studio.
 ---
 
 # Apps de clientes · estándar KREA
@@ -48,7 +48,16 @@ Una app de KREA no es una página: el cliente la usa **a diario en el móvil (�
 
 - **Demo pública** en `/demo/` con su propio acceso: empieza vacía y en Ajustes tiene «Cargar datos de ejemplo» y «Empezar de cero». Claves de sesión separadas de la app real.
 - **Portafolio** en `/portafolio/` (caso de estudio con capturas reales de ordenador y móvil y botones «Entrar en la app») y su **PDF** con todos los enlaces absolutos y clicables, listo para Drive y WhatsApp.
+- **Pie con el distintivo de KREA, siempre**, en el portafolio web, en su PDF y en el pie de toda web de cliente: `© <año> KREA Digital Studio · Diseño y desarrollo · Todos los derechos reservados`, con enlace a https://kreadigitalstudio.es. En las apps, «Desarrollado por KREA Digital Studio» en la pantalla de acceso o en Ajustes.
 - **Mensaje de WhatsApp** listo para el cliente: enlace, crear contraseña, instalar en móvil y ordenador, qué rellenar en Ajustes.
+
+## 6. Forma de trabajar con Kike (igual en apps, webs y portafolios)
+
+1. Primera versión completa y **enlace para verla** (artifact o subdominio) cuanto antes; Kike entra, prueba y pide cambios en el mismo hilo.
+2. Cada proyecto en **su repositorio** y **su subdominio** de kreadigitalstudio.es (skill **krea-repos**). Kike crea el repositorio en GitHub y el registro en OVH (CNAME `<sub>` → `kikeotero7.github.io.`); Claude publica y comprueba desde fuera el candado y la redirección de http a https antes de decir que está listo.
+3. Guiar a Kike en paneles (Supabase, OVH, GitHub) **paso a paso y con capturas**: qué botón, qué escribir exactamente y qué debe verse después.
+4. Al cerrar: comprobar todas las direcciones (app, demo, portafolio, direcciones antiguas), dejar el portafolio y su PDF al día y preparar el **mensaje de WhatsApp** para el cliente.
+5. Lo aprendido en cada proyecto se añade a estas skills.
 
 ## Comprobación antes de dar el enlace
 
@@ -57,4 +66,4 @@ Una app de KREA no es una página: el cliente la usa **a diario en el móvil (�
 - [ ] PDF correcto y envío por WhatsApp/correo probado en un móvil real.
 - [ ] HTTPS activo y verificado con certificado válido en todas las direcciones.
 - [ ] Sin datos personales del cliente en el repositorio.
-- [ ] Demo y portafolio actualizados.
+- [ ] Demo y portafolio actualizados, con el © de KREA Digital Studio al pie de la web y del PDF.
