@@ -54,6 +54,7 @@ Desde octubre de 2026 todo proyecto de KREA (apps, webs, portafolios y la web de
 - **Aviso legal de propiedad intelectual** en el pie y en la página legal: diseño, código, textos, fotos y capturas de KREA o del cliente; prohibida la copia total o parcial sin autorización por escrito.
 - **Imágenes protegidas**: sin menú de guardar imagen ni arrastrar (`contextmenu`/`dragstart` en `img`, `-webkit-user-drag:none`). Sin bloquear la selección de texto ni el teclado: no debe estorbar al cliente ni a la accesibilidad.
 - Apps privadas: pantalla de acceso con cuenta y RLS; webs en presentación: acceso con código (como JP Fútbol).
+- **Escaparates sin enlaces:** en la web de KREA, en los portafolios y en sus PDF los proyectos se enseñan solo con imágenes. Sin enlaces ni direcciones a las webs o apps de los clientes; el agente de la web tampoco las da y ofrece una demostración.
 - Decirlo claro a Kike: lo que el navegador muestra siempre se puede ver y guardar; el blindaje evita el acceso al código del repositorio, dificulta la copia y deja constancia legal de la autoría.
 
 ## 5. Entregar
