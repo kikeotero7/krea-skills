@@ -3,7 +3,7 @@ description: "[Código secreto] Escribe un system prompt personalizado"
 argument-hint: "[texto, tema o instrucciones]"
 ---
 
-Escribe un system prompt completo para el asistente o agente IA descrito: identidad, objetivo, tono, conocimientos, reglas, formato de salida, qué no hacer y ejemplos. Pensado para agentes y automatizaciones de KREA Digital Studio si aplica.
+Escribe un system prompt completo para el asistente o agente IA descrito: identidad, objetivo, tono, conocimientos, reglas, formato de salida, qué no hacer y ejemplos. Pensado para agentes y automatizaciones de KREAVANCE si aplica.
 
 Responde en el idioma del usuario (español por defecto).
 

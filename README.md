@@ -1,6 +1,6 @@
 # KREA Skills
 
-Skills, comandos y códigos de prompting de KREA Digital Studio para Claude Code.
+Skills, comandos y códigos de prompting de KREAVANCE para Claude Code.
 Copia la carpeta `.claude/` en cualquier proyecto para tenerlos disponibles.
 
 ## Skills
