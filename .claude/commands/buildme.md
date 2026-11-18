@@ -3,7 +3,7 @@ description: "[Código secreto] Crea una app o herramienta funcional completa a 
 argument-hint: "[texto, tema o instrucciones]"
 ---
 
-Construye una aplicación o herramienta funcional completa a partir de la descripción. Si es web para KREA Digital Studio, que tenga calidad de cliente: diseño cuidado, responsive, accesible y sin dependencias innecesarias. Plantea antes la estructura en pocas líneas, implementa y explica cómo probarla.
+Construye una aplicación o herramienta funcional completa a partir de la descripción. Si es web para KREAVANCE, que tenga calidad de cliente: diseño cuidado, responsive, accesible y sin dependencias innecesarias. Plantea antes la estructura en pocas líneas, implementa y explica cómo probarla.
 
 Responde en el idioma del usuario (español por defecto).
 

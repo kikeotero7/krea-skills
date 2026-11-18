@@ -23,7 +23,7 @@ Los códigos no son comandos ocultos: son atajos de prompting. Una palabra clave
 
 Los códigos de Claude con barra (`/ghost`, `/redteam`, `/autoprompt`…) están instalados como comandos en `.claude/commands/`. Dos chocaban con comandos nativos de Claude Code y se han renombrado: `/voice` → `/voz` y `/memory` → `/recordar`. Las equivalencias visuales en español (`/amano`, `/infografia`, `/panel`, `/unafolio`…) también son comandos.
 
-## Combos útiles para KREA Digital Studio
+## Combos útiles para KREAVANCE
 
 | Combo | Para qué |
 |---|---|

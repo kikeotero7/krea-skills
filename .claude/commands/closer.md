@@ -3,7 +3,7 @@ description: "[Código secreto] Copy de ventas pensado para cerrar la venta o la
 argument-hint: "[texto, tema o instrucciones]"
 ---
 
-Escribe copy de ventas pensado para cerrar: beneficio principal, prueba, respuesta a la objeción clave, urgencia legítima y una llamada a la acción clara. Para servicios de KREA Digital Studio si aplica.
+Escribe copy de ventas pensado para cerrar: beneficio principal, prueba, respuesta a la objeción clave, urgencia legítima y una llamada a la acción clara. Para servicios de KREAVANCE si aplica.
 
 Responde en el idioma del usuario (español por defecto).
 

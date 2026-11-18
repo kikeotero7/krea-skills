@@ -1,6 +1,6 @@
 ---
 name: krea-apps
-description: Estándar y forma de trabajar de KREA Digital Studio para proyectos de clientes (apps de gestión, presupuestos, fichajes, reservas, paneles, y también webs y portafolios). Usar SIEMPRE que se cree o mejore una app, una web o un portafolio: toda app se entrega instalable en móvil y ordenador, con los mismos datos sincronizados en la nube, acceso privado, PDF y envío por WhatsApp/correo, demo aparte, y todo proyecto termina con portafolio web y PDF con el © de KREA Digital Studio.
+description: Estándar y forma de trabajar de KREAVANCE para proyectos de clientes (apps de gestión, presupuestos, fichajes, reservas, paneles, y también webs y portafolios). Usar SIEMPRE que se cree o mejore una app, una web o un portafolio: toda app se entrega instalable en móvil y ordenador, con los mismos datos sincronizados en la nube, acceso privado, PDF y envío por WhatsApp/correo, demo aparte, y todo proyecto termina con portafolio web y PDF con el © de KREAVANCE.
 ---
 
 # Apps de clientes · estándar KREA
@@ -61,7 +61,7 @@ Desde octubre de 2026 todo proyecto de KREA (apps, webs, portafolios y la web de
 
 - **Demo pública** en `/demo/` con su propio acceso: empieza vacía y en Ajustes tiene «Cargar datos de ejemplo» y «Empezar de cero». Claves de sesión separadas de la app real.
 - **Portafolio** en `/portafolio/` (caso de estudio con capturas reales de ordenador y móvil y botones «Entrar en la app») y su **PDF** con todos los enlaces absolutos y clicables, listo para Drive y WhatsApp.
-- **Pie con el distintivo de KREA, siempre**, en el portafolio web, en su PDF y en el pie de toda web de cliente: `© <año> KREA Digital Studio · Diseño y desarrollo · Todos los derechos reservados`, con enlace a https://kreadigitalstudio.es. En las apps, «Desarrollado por KREA Digital Studio» en la pantalla de acceso o en Ajustes.
+- **Pie con el distintivo de KREA, siempre**, en el portafolio web, en su PDF y en el pie de toda web de cliente: `© <año> KREAVANCE · Diseño y desarrollo · Todos los derechos reservados`, con enlace a https://kreadigitalstudio.es. En las apps, «Desarrollado por KREAVANCE» en la pantalla de acceso o en Ajustes.
 - **Mensaje de WhatsApp** listo para el cliente: enlace, crear contraseña, instalar en móvil y ordenador, qué rellenar en Ajustes.
 
 ## 6. Forma de trabajar con Kike (igual en apps, webs y portafolios)
@@ -80,4 +80,4 @@ Desde octubre de 2026 todo proyecto de KREA (apps, webs, portafolios y la web de
 - [ ] HTTPS activo y verificado con certificado válido en todas las direcciones.
 - [ ] Sin datos personales del cliente en el repositorio.
 - [ ] Repositorio privado, publicado en OVH con `.htaccess`, aviso de propiedad intelectual e imágenes protegidas (apartado 4b).
-- [ ] Demo y portafolio actualizados, con el © de KREA Digital Studio al pie de la web y del PDF.
+- [ ] Demo y portafolio actualizados, con el © de KREAVANCE al pie de la web y del PDF.
