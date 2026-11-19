@@ -1,0 +1,34 @@
+name: Auditoría de seguridad KREA
+# Copiar a .github/workflows/auditoria-seguridad.yml de cada app que se vaya a comercializar.
+# Corre en GitHub (no hace falta tener el ordenador encendido): a mano, cada lunes y tras cada publicación.
+# El informe sale en la pestaña Actions. No cambia nada de la app.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 6 * * 1'   # lunes por la mañana
+  workflow_run:
+    workflows: ['NOMBRE EXACTO DEL WORKFLOW DE PUBLICAR']   # p. ej. 'Publicar Gastoticket (PHP + MySQL) en OVH'
+    types: [completed]
+permissions:
+  contents: read
+jobs:
+  auditar:
+    runs-on: ubuntu-latest
+    env:
+      URL_APP: ${{ vars.URL_APP }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # historial completo para buscar claves antiguas
+      - name: Traer la auditoría de krea-skills
+        run: |
+          B=https://raw.githubusercontent.com/kikeotero7/krea-skills/main/.claude/skills/krea-auditoria-seguridad/scripts
+          curl -fsSL $B/auditar_codigo.py -o /tmp/auditar_codigo.py
+          curl -fsSL $B/revisar_web.py -o /tmp/revisar_web.py
+      - name: Revisar el código
+        shell: bash
+        run: python3 /tmp/auditar_codigo.py . | tee -a $GITHUB_STEP_SUMMARY
+      - name: Revisar la app publicada
+        if: always() && env.URL_APP != ''
+        shell: bash
+        run: python3 /tmp/revisar_web.py "$URL_APP" | tee -a $GITHUB_STEP_SUMMARY

@@ -1,0 +1,27 @@
+# KREA · bloque de seguridad para el .htaccess de la RAÍZ de cada app (hosting OVH)
+# Cambiar <app> por el subdominio. Probar la app entera después (la CSP puede bloquear algo que haga falta:
+# si falla una librería o una foto, añadir su dominio a la línea correspondiente, nunca poner *).
+
+RewriteEngine On
+# 13 · Siempre por https
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# 23 · Que nadie abra archivos internos
+RedirectMatch 404 /\.(git|env|github)
+<FilesMatch "\.(sql|md|bak|zip|log|py|sh|yml)$">
+  Require all denied
+</FilesMatch>
+Options -Indexes
+
+# 14 · Cabeceras de seguridad
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(self), microphone=(self), geolocation=()"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://js.stripe.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; frame-src https://js.stripe.com https://checkout.stripe.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://checkout.stripe.com"
+  Header always unset X-Powered-By
+</IfModule>
