@@ -18,7 +18,7 @@ Objetivo: que ninguna app de KREA llegue a un cliente filtrando datos, claves o 
    (Si la skill está dentro del proyecto: `.claude/skills/krea-auditoria-seguridad/scripts/…`.) Saca avisos ALTO / MEDIO / INFO con archivo y línea. Son pistas: confirmar cada una leyendo el código.
 2. **Revisión de la app publicada** (cabeceras, HTTPS, archivos expuestos, CORS):
    ```bash
-   python3 ~/.claude/skills/krea-auditoria-seguridad/scripts/revisar_web.py https://<app>.kreadigitalstudio.es
+   python3 ~/.claude/skills/krea-auditoria-seguridad/scripts/revisar_web.py https://<app>.kreavance.es
    ```
    Si la sesión no llega a la web (sesiones en la nube con red cerrada), se hace con el workflow `auditoria-seguridad.yml` de GitHub Actions (plantilla en `plantillas/`), que corre en GitHub y deja el informe en la pestaña Actions.
 3. **Revisión a mano** de los 25 puntos (abajo), sobre todo los que ningún script ve: permisos por usuario, precios, rutas de admin, IA.
