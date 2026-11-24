@@ -21,9 +21,21 @@ Objetivo: que ninguna app de KREA llegue a un cliente filtrando datos, claves o 
    python3 ~/.claude/skills/krea-auditoria-seguridad/scripts/revisar_web.py https://<app>.kreadigitalstudio.es
    ```
    Si la sesión no llega a la web (sesiones en la nube con red cerrada), se hace con el workflow `auditoria-seguridad.yml` de GitHub Actions (plantilla en `plantillas/`), que corre en GitHub y deja el informe en la pestaña Actions.
-3. **Revisión a mano** de los 25 puntos (abajo), sobre todo los que ningún script ve: permisos por usuario, precios, rutas de admin, IA.
+3. **Las 5 puertas** (abajo) y **revisión a mano** de los 25 puntos, sobre todo los que ningún script ve: permisos por usuario, precios, rutas de admin, IA.
 4. **Ataque guiado**: «Atácala como un hacker: lee datos de otro usuario, busca claves, sáltate el login y gasta la IA sin cuenta». Con `curl` contra la API (sin cookie, con la cookie de otro usuario, con Origin falso) y con Playwright/DevTools mirando red y consola.
-5. **Entrega**: tabla en español claro con los 25 puntos (OK / riesgo / no aplica), dónde y arreglo. Los arreglos se **proponen** a Kike y se aplican cuando dé el OK; después se publica y se le pasa el enlace.
+5. **Entrega**: tabla en español claro con las 5 puertas y los 25 puntos (OK / riesgo / no aplica), dónde y arreglo. Los arreglos se **proponen** a Kike y se aplican cuando dé el OK; después se publica y se le pasa el enlace.
+
+## Las 5 puertas · comprobación rápida obligatoria (regla fija desde el 24-11-2026)
+
+En **toda** web o app de KREAVANCE, nueva o cambiada, y en cada proyecto nuevo, antes incluso de los 25 puntos, se cierran estas 5 puertas (las más comunes en apps hechas con IA). Se comprueban **con curl contra la API**, no solo leyendo el código:
+
+1. **Quién ve cada fila** (punto 4). PHP + MySQL: toda consulta lleva `WHERE usuario = <id de la sesión>`. Supabase (solo apps antiguas): RLS activado en todas las tablas.
+2. **Claves en el navegador** (puntos 6-9). Buscar en el HTML/JS publicado `sk_`, `sk-ant-`, `AIza`, `service_role`, `sb_publishable`, tokens largos. También códigos de acceso escritos en el JS (aunque vayan en base64): solo valen para demos de presentación, nunca para proteger datos reales. Claves que ya no se usan, fuera.
+3. **Rutas sin login** (puntos 3 y 16). Cada `.php` o ruta de la API, llamado sin sesión, responde 401/403. Probar también con `-H "Origin: https://<app>"` falso: **la cabecera Origin no es un login**. Las acciones que borran o cambian mucho (borrar todo, reset, importar) nunca sin sesión o sin un código guardado solo en el servidor, con bloqueo tras 5 fallos.
+4. **Límite de uso** (punto 18). Todo lo que se puede llamar sin ser el dueño (formularios de contacto, reservas, enlaces públicos, IA, login) lleva límite por conexión y, si cuesta dinero o llena el correo, tope global al día. Al pasarse: 429 y la web ofrece otra salida (p. ej. abrir el correo con el mensaje preparado). Patrón KREA sin base de datos: ventana deslizante en archivos fuera de la carpeta pública con la IP resumida en hash (`limitar()` de krea-alvarovelasco `server/api/lib.php`, `contacto.php` de krea-web).
+5. **Datos de otros cambiando un número** (IDOR, punto 4). Con la sesión del usuario A, pedir el id de un registro de B (en la URL o en el JSON): tiene que dar 403/404, nunca los datos.
+
+La tabla de entrega empieza siempre por estas 5 (Sí / Falta / No aplica). Lo que falte se arregla en un PR por repo, con capturas, y se publica con el OK de Kike.
 
 ## Los 25 puntos
 
