@@ -5,7 +5,7 @@ description: Estándar y forma de trabajar de KREAVANCE para proyectos de client
 
 # Apps de clientes · estándar KREA
 
-Una app de KREA no es una página: el cliente la usa **a diario en el móvil (≈80 %)** y **se sienta al ordenador para el trabajo largo (≈20 %)**. Todo lo de abajo viene incluido desde la primera versión, sin que Kike tenga que pedirlo.
+Una app de KREAVANCE no es una página: el cliente la usa **a diario en el móvil (≈80 %)** y **se sienta al ordenador para el trabajo largo (≈20 %)**. Todo lo de abajo viene incluido desde la primera versión, sin que Kike tenga que pedirlo.
 
 ## 1. Mismo enlace, móvil y ordenador, mismos datos
 
@@ -40,34 +40,34 @@ Una app de KREA no es una página: el cliente la usa **a diario en el móvil (�
 
 ## 4. Publicar
 
-- Repositorio y subdominio según la skill **krea-repos** (`krea-<proyecto>`, `<cliente>.kreadigitalstudio.es`, HTTPS obligatorio).
+- Repositorio y subdominio según la skill **krea-repos** (`krea-<proyecto>`, `<cliente>.kreavance.es` en los proyectos nuevos, HTTPS obligatorio).
 - **Service worker** limitado a las páginas de la app (no cachear `/demo/`, `/portafolio/` ni otras apps del mismo subdominio) y con nombre de caché versionado. Si el subdominio venía de otra plataforma, el SW nuevo debe sustituir al anterior y recargar.
 - Varias apps del mismo cliente: `/<proyecto>/` en el mismo subdominio.
 
 ## 4b. Blindaje: repositorio privado y protección anticopia (todos los proyectos)
 
-Desde octubre de 2026 todo proyecto de KREA (apps, webs, portafolios y la web de KREA) va **blindado**, como Gastobra y Gastoticket:
+Desde octubre de 2026 todo proyecto de KREAVANCE (apps, webs, portafolios y la web de KREAVANCE) va **blindado**, como Gastobra y Gastoticket:
 
 - **Repositorio privado** en GitHub: el código no se enseña. Kike lo crea privado (o lo cambia en Settings → General → Danger Zone → Change visibility).
-- **Publicación en el hosting de OVH** (ya pagado), no en GitHub Pages: multisitio `<cliente>.kreadigitalstudio.es` → carpeta propia, y un workflow `.github/workflows/publicar-ovh.yml` que sube por FTP solo los archivos de la web (secreto `OVH_FTP_PASSWORD`, que teclea Kike). Servidor `ftp.cluster131.hosting.ovh.net`.
+- **Publicación en el hosting de OVH** (ya pagado), no en GitHub Pages: multisitio `<cliente>.kreavance.es` (los proyectos ya publicados siguen en `<cliente>.kreadigitalstudio.es` hasta migrarlos) → carpeta propia, y un workflow `.github/workflows/publicar-ovh.yml` que sube por FTP solo los archivos de la web (secreto `OVH_FTP_PASSWORD`, que teclea Kike). Servidor `ftp.cluster131.hosting.ovh.net`.
 - **`.htaccess`** en la raíz publicada: https obligatorio, `Options -Indexes`, `X-Frame-Options SAMEORIGIN` y `frame-ancestors 'self'` (nadie la mete dentro de otra web), `nosniff`, y bloquear README y archivos internos.
-- **Aviso legal de propiedad intelectual** en el pie y en la página legal: diseño, código, textos, fotos y capturas de KREA o del cliente; prohibida la copia total o parcial sin autorización por escrito.
+- **Aviso legal de propiedad intelectual** en el pie y en la página legal: diseño, código, textos, fotos y capturas de KREAVANCE o del cliente; prohibida la copia total o parcial sin autorización por escrito.
 - **Imágenes protegidas**: sin menú de guardar imagen ni arrastrar (`contextmenu`/`dragstart` en `img`, `-webkit-user-drag:none`). Sin bloquear la selección de texto ni el teclado: no debe estorbar al cliente ni a la accesibilidad.
 - Apps privadas: pantalla de acceso con cuenta y RLS; webs en presentación: acceso con código (como JP Fútbol).
-- **Escaparates sin enlaces:** en la web de KREA, en los portafolios y en sus PDF los proyectos se enseñan solo con imágenes. Sin enlaces ni direcciones a las webs o apps de los clientes; el agente de la web tampoco las da y ofrece una demostración.
+- **Escaparates sin enlaces:** en la web de KREAVANCE, en los portafolios y en sus PDF los proyectos se enseñan solo con imágenes. Sin enlaces ni direcciones a las webs o apps de los clientes; el agente de la web tampoco las da y ofrece una demostración.
 - Decirlo claro a Kike: lo que el navegador muestra siempre se puede ver y guardar; el blindaje evita el acceso al código del repositorio, dificulta la copia y deja constancia legal de la autoría.
 
 ## 5. Entregar
 
 - **Demo pública** en `/demo/` con su propio acceso: empieza vacía y en Ajustes tiene «Cargar datos de ejemplo» y «Empezar de cero». Claves de sesión separadas de la app real.
 - **Portafolio** en `/portafolio/` (caso de estudio con capturas reales de ordenador y móvil y botones «Entrar en la app») y su **PDF** con todos los enlaces absolutos y clicables, listo para Drive y WhatsApp.
-- **Pie con el distintivo de KREA, siempre**, en el portafolio web, en su PDF y en el pie de toda web de cliente: `© <año> KREAVANCE · Diseño y desarrollo · Todos los derechos reservados`, con enlace a https://kreavance.es (contacto@kreavance.es · Instagram @kreavance.es). En las apps, «Desarrollado por KREAVANCE» en la pantalla de acceso o en Ajustes.
+- **Pie con el distintivo de KREAVANCE, siempre**, en el portafolio web, en su PDF y en el pie de toda web de cliente: `© <año> KREAVANCE · Diseño y desarrollo · Todos los derechos reservados`, con enlace a https://kreavance.es (contacto@kreavance.es · Instagram @kreavance.es). En las apps, «Desarrollado por KREAVANCE» en la pantalla de acceso o en Ajustes.
 - **Mensaje de WhatsApp** listo para el cliente: enlace, crear contraseña, instalar en móvil y ordenador, qué rellenar en Ajustes.
 
 ## 6. Forma de trabajar con Kike (igual en apps, webs y portafolios)
 
 1. Primera versión completa y **enlace para verla** (artifact o subdominio) cuanto antes; Kike entra, prueba y pide cambios en el mismo hilo.
-2. Cada proyecto en **su repositorio privado** y **su subdominio** de kreadigitalstudio.es (skill **krea-repos** y apartado 4b). Kike crea el repositorio en GitHub y el multisitio en OVH; Claude publica y comprueba desde fuera el candado y la redirección de http a https antes de decir que está listo.
+2. Cada proyecto en **su repositorio privado** y **su subdominio** de kreavance.es (skill **krea-repos** y apartado 4b). Kike crea el repositorio en GitHub y el multisitio en OVH; Claude publica y comprueba desde fuera el candado y la redirección de http a https antes de decir que está listo.
 3. Guiar a Kike en paneles (Supabase, OVH, GitHub) **paso a paso y con capturas**: qué botón, qué escribir exactamente y qué debe verse después.
 4. Al cerrar: comprobar todas las direcciones (app, demo, portafolio, direcciones antiguas), dejar el portafolio y su PDF al día y preparar el **mensaje de WhatsApp** para el cliente.
 5. Lo aprendido en cada proyecto se añade a estas skills.
